@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: watershed-postgis
+    environment:
+      POSTGRES_USER: watershed_user
+      POSTGRES_PASSWORD: watershed_password
+      POSTGRES_DB: watershed_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: watershed-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  api:
+    build: ../app/api
+    container_name: watershed-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./watershed.db
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  web:
+    build: ../app/web
+    container_name: watershed-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  postgis-data:

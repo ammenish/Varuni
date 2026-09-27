@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans", sans-serif;
+}
+
+:root {
+  /* Govt Institutional Palette */
+  --background: #F7F8FA;
+  --surface: #FFFFFF;
+  --surface-inset: #EEF1F4;
+  
+  --foreground: #101828;
+  --text-muted: #667085;
+  
+  --border: #D9DEE5;
+  
+  /* Status Colors */
+  --accent-sage: #287A4B; /* Geospatial Green */
+  --accent-sage-light: #E8F3EC;
+  --accent-sage-dark: #1F5F3A;
+  
+  --accent-peach: #FFF4D6; /* Warning Amber bg */
+  --accent-dark: #A66A00; /* Warning Amber text */
+  --accent-red: #B42318;
+  
+  --nav-bg: #0B1F33; /* Deep Navy */
+  --nav-text: #FFFFFF;
+  --nav-hover: #155A8A; /* Gov Blue */
+}
+
+.dark {
+  /* Strict institutional dark mode */
+  --background: #0B1F33;
+  --surface: #101828;
+  --surface-inset: #1D2939;
+  
+  --foreground: #F7F8FA;
+  --text-muted: #98A2B3;
+  
+  --border: #344054;
+  
+  --accent-sage: #287A4B;
+  --accent-sage-light: #1F5F3A;
+  --accent-sage-dark: #E8F3EC;
+  
+  --accent-peach: #4A3C2C;
+  --accent-dark: #E0E0E0;
+  --accent-red: #CC5D5D;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Institutional Panels */
+.neo-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+.neo-pressed {
+  background-color: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.neo-button {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  transition: all 0.15s ease-in-out;
+}
+
+.neo-button:hover {
+  background-color: var(--surface-inset);
+}
+
+/* Map Tooltips */
+.custom-tooltip {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 6px -1px rgba(16, 24, 40, 0.1) !important;
+  color: var(--foreground) !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* MapLibre Canvas */
+.maplibregl-canvas {
+  outline: none !important;
+}
+.maplibregl-map {
+  border-radius: 4px;
+}

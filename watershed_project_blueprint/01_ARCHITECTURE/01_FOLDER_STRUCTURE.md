@@ -1,0 +1,42 @@
+# Recommended Implementation Repository
+
+app/
+  web/
+    components/
+    pages/
+    map/
+    analytics/
+    capture/
+    accessibility/
+  api/
+    auth/
+    watersheds/
+    images/
+    layers/
+    satellite/
+    analysis/
+    reports/
+    audit/
+  workers/
+    image/
+    raster/
+    ai/
+    reports/
+  gis/
+    crs/
+    vector/
+    raster/
+    tiles/
+  models/
+    registry/
+  data_contracts/
+  tests/
+infra/
+  docker/
+  k8s/
+  terraform/
+docs/
+  architecture/
+  ui/
+  ai/
+  compliance/
